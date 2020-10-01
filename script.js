@@ -41,5 +41,10 @@ async function getMealBySearch() {
         </div>
         
     `;
+    const btn = meal.querySelector(".meal-body .fav-btn")
+    btn.addEventListener("click", (e) => {
+        btn.classList.toggle("active");
+        
+    })
     meals.appendChild(meal);
 }

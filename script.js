@@ -42,9 +42,35 @@ async function getMealBySearch() {
         
     `;
     const btn = meal.querySelector(".meal-body .fav-btn")
-    btn.addEventListener("click", (e) => {
-        btn.classList.toggle("active");
-        
+    btn.addEventListener("click", () => {
+
+        if(btn.classList.contains("active")){
+            removeMealFromLS(mealData.idMeal);
+            btn.classList.remove("active");
+        }else {
+            addMealToLS(mealData.idMeal);
+            btn.classList.add("active");
+        }
     })
     meals.appendChild(meal);
+}
+
+function addMealToLS(mealId){
+    const mealIds = getMealsFromLS();
+
+    localStorage.setItem('mealIds', JSON.stringify
+    ([...mealIds, mealId]));
+}
+
+function removeMealFromLS(mealId){
+    const mealIds = getMealsFromLS();
+
+    localStorage.setItem('mealIds', JSON.stringify
+    (mealIds.filter(id => id !== mealId)));
+}
+
+function getMealsFromLS(){
+const mealIds = JSON.parse(localStorage.
+    getItem('mealIds'));
+    return mealIds === null ? [] : mealIds;
 }

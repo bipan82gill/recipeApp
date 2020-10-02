@@ -58,6 +58,8 @@ async function getMealBySearch() {
             addMealToLS(mealData.idMeal);
             btn.classList.add("active");
         }
+       
+        fetchFavMeals();
     })
     meals.appendChild(meal);
 }
@@ -82,7 +84,7 @@ const mealIds = JSON.parse(localStorage.
     return mealIds === null ? [] : mealIds;
 }
 async function fetchFavMeals(){
-
+    favoriteContainer.innerHTML='';
     const mealIds = getMealsFromLS();
 
     const meals = [];
@@ -103,7 +105,14 @@ function addMealToFav(mealData){
                 <img src="${mealData.strMealThumb}" 
                     alt="${mealData.strMeal}">
                 <span>${mealData.strMeal}</span>
-    `
+                <button class="clear"><i class="fas fa-window-close"></i></button>
+    `;
+    const btn = favMeal.querySelector('.clear');
+    btn.addEventListener("click", ()=> {
+        removeMealFromLS(mealData.idMeal);
+
+        fetchFavMeals();
+    })
             favoriteContainer.appendChild(favMeal);  
 
 }

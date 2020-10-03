@@ -4,7 +4,7 @@ const searchTerm = document.getElementById('search-term');
 const serachBtn = document.getElementById('search');
 const mealPopup = document.getElementById('meal-popup');
 const popupCloseBtn = document.getElementById('close-popup')
-
+const mealInfoEl = document.getElementById('meal-info');
 getRandomMeal();
 fetchFavMeals();
 // get random meal from API data
@@ -75,6 +75,9 @@ async function getMealBySearch(term) {
         }
        
         fetchFavMeals();
+    });
+    meal.addEventListener('click', ()=>{
+        showMealInfo(mealData);
     })
     mealsEl.appendChild(meal);
 }
@@ -132,8 +135,29 @@ function addMealToFav(mealData){
 
         fetchFavMeals();
     })
+
+        favMeal.addEventListener("click", ()=>{
+            showMealInfo(mealData);
+        })
             favoriteContainer.appendChild(favMeal);  
 
+}
+
+function showMealInfo(mealData){
+    const mealEl = document.createElement('div');
+    mealInfoEl.innerHTML=''
+    mealEl.innerHTML=`
+                <h1>${mealData.strMeal}</h1>
+                <img 
+                     src=${mealData.strMealThumb} 
+                     alt="${mealData.strMeal}" 
+                />
+                <p>
+                    ${mealData.strInstructions}
+                </p>
+    `
+    mealInfoEl.appendChild(mealEl);
+    mealPopup.classList.remove('hidden');
 }
 // show meal according to search term 
 serachBtn.addEventListener("click", async () => {
@@ -151,5 +175,5 @@ serachBtn.addEventListener("click", async () => {
 
 popupCloseBtn.addEventListener('click', () =>{
     mealPopup.classList.add('hidden');
-    
+
 })

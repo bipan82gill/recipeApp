@@ -136,7 +136,7 @@ overflow: hidden;
 .meal-body .fav-btn.active{
     color:rebeccapurple;
 }
-.meal-info-container{
+.popup-container{
     background-color:rgba(0, 0, 0, 0.5);
     position: fixed;
     display:flex;
@@ -147,7 +147,7 @@ overflow: hidden;
     left:0;
     bottom: 0;
 }
-.meal-info{
+.popup{
     background-color: #fff;
     position: relative;
     max-width:600px;
@@ -155,10 +155,7 @@ overflow: hidden;
     padding: 0 2rem;
     border-radius: 5px;
 }
-.meal-info h1{
-    text-align: center;
-}
-.meal-info .close-popup{
+.popup .close-popup{
     background-color:transparent;
     border: none;
     font-size:1.5rem;
@@ -168,7 +165,11 @@ overflow: hidden;
     right:1rem;
 
 }
-.meal-info-container.hidden{
+.meal-info h1{
+    text-align: center;
+}
+
+.popup-container.hidden{
     opacity: 0;
     pointer-events: none;
 }

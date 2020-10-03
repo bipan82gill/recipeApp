@@ -1,4 +1,4 @@
-const meals = document.getElementById('meals');
+const mealsEl = document.getElementById('meals');
 const favoriteContainer = document.getElementById('fav-meals');
 const searchTerm = document.getElementById('search-term');
 const serachBtn = document.getElementById('search');
@@ -75,7 +75,7 @@ async function getMealBySearch(term) {
        
         fetchFavMeals();
     })
-    meals.appendChild(meal);
+    mealsEl.appendChild(meal);
 }
 // Add meal id to Local storage 
 function addMealToLS(mealId){
@@ -136,10 +136,14 @@ function addMealToFav(mealData){
 }
 // show meal according to search term 
 serachBtn.addEventListener("click", async () => {
+
+    mealsEl.innerHTML ="";
      const search = searchTerm.value;
 
    const meals = await getMealBySearch(search);
+   if(meals){
    meals.forEach((meal) => {
        addMeal(meal);
    });
+}
 })

@@ -5,8 +5,11 @@ const serachBtn = document.getElementById('search');
 const mealPopup = document.getElementById('meal-popup');
 const popupCloseBtn = document.getElementById('close-popup')
 const mealInfoEl = document.getElementById('meal-info');
+
+
 getRandomMeal();
 fetchFavMeals();
+
 // get random meal from API data
 async function getRandomMeal() {
    
@@ -44,6 +47,7 @@ async function getMealBySearch(term) {
  function addMeal(mealData, random = false){
     const meal = document.createElement('div');
     meal.classList.add('meal');
+
     meal.innerHTML =`
         <div class="meal-header">
         ${random ? `
@@ -51,7 +55,7 @@ async function getMealBySearch(term) {
                             Random Recipe
         </span>`:''}
             
-        <img src="${mealData.strMealThumb}" 
+        <img id="mealImg" src="${mealData.strMealThumb}" 
              alt ="${mealData.strMeal}">
         </div>
         <div class="meal-body">
@@ -135,8 +139,8 @@ function addMealToFav(mealData){
 
         fetchFavMeals();
     })
-
-        favMeal.addEventListener("click", ()=>{
+    
+      favMeal.addEventListener("click", ()=>{
             showMealInfo(mealData);
         })
             favoriteContainer.appendChild(favMeal);  

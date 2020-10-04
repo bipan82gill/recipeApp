@@ -98,6 +98,7 @@ margin: 1.5rem;
 border-radius: 3px;
 box-shadow: 0 0 10px 2px #3333331a;
 overflow: hidden;
+cursor: pointer;
 }
 .meal-header{
     position: relative;
@@ -150,6 +151,8 @@ overflow: hidden;
 .popup{
     background-color: #fff;
     position: relative;
+    overflow: auto;
+    max-height:100vh;
     max-width:600px;
     width:100%;
     padding: 0 2rem;

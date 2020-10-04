@@ -144,8 +144,19 @@ function addMealToFav(mealData){
 }
 
 function showMealInfo(mealData){
-    const mealEl = document.createElement('div');
     mealInfoEl.innerHTML=''
+    const mealEl = document.createElement('div');
+    const intgredients =[];
+    for(let i=1; i<=20;i++){
+        if(mealData['strIngredient'+i]){
+            intgredients.push(
+                `${mealData["strIngredient"+i]}
+                -${mealData["strMeasure"+i]}`
+            )
+        }else{
+            break;
+        }
+    }
     mealEl.innerHTML=`
                 <h1>${mealData.strMeal}</h1>
                 <img 
@@ -155,7 +166,15 @@ function showMealInfo(mealData){
                 <p>
                     ${mealData.strInstructions}
                 </p>
-    `
+                <h3>Ingredients:</h3>
+                <ul>
+                ${intgredients.map((int)=>
+                `<li>${int}</li>`
+               )
+            .join("")}
+               
+                </ul>
+    `;
     mealInfoEl.appendChild(mealEl);
     mealPopup.classList.remove('hidden');
 }

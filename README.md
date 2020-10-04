@@ -7,8 +7,8 @@ This App shows meals with their instruction to cook them and also shows their in
 HTML5, CSS3, JavaScript
 
 # Demo
-
+   ![](images/search.jpg)
  ![](images/home.jpg)
   ![](images/favorites.jpg)
    ![](images/ingredients.jpg)
-    ![](images/search.jpg)
+  

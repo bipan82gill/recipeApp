@@ -8,7 +8,7 @@ HTML5, CSS3, JavaScript
 
 # Demo
 
- ![](images/home.jpg);
-  ![](images/favorites.jpg);
-   ![](images/ingredients.jpg);
-    ![](images/search.jpg);
+ ![](images/home.jpg)
+  ![](images/favorites.jpg)
+   ![](images/ingredients.jpg)
+    ![](images/search.jpg)

@@ -17,5 +17,5 @@ HTML5, CSS3, JavaScript
    ![](images/ingredients.jpg)
 
 # Search meal through search button
-    ![](images/search.jpg)
+   ![.](images/search.jpg)
   
